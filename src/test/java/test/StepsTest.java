@@ -20,21 +20,21 @@ public class StepsTest {
     public void testLambdaStep() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
-        step("Открываем главную страницу", () -> {
+        step("Открываем главную страницу ", () -> {
             open("https://github.com");
         });
 
-        step("Ищем репозиторий" + REPOSITORY, () -> {
+        step("Ищем репозиторий " + REPOSITORY, () -> {
             $("[data-target=\"qbsearch-input.inputButtonText\"]").click();// У меня отличается селектор
             $("input[id='query-builder-test']").sendKeys(REPOSITORY);
             $("input[id='query-builder-test']").submit();
         });
 
-        step("Кликаем по ссылке репозитория" + REPOSITORY, () -> {
+        step("Кликаем по ссылке репозитория " + REPOSITORY, () -> {
             $(linkText(REPOSITORY)).click();
         });
 
-        step("Открываем таб Issue", () -> {
+        step("Открываем таб Issue ", () -> {
             $("#issues-tab").click();
         });
 
